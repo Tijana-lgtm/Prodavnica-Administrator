@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Online Prodavnica</title>
+</head>
+<body>
+
+    <h2>Artikli</h2>
+    <hr>
+
+    <div style="display: flex; gap: 50px;">
+        <div>
+            <table border="1" style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Br</th>
+                        <th>Naziv</th>
+                        <th>Cena($)</th>
+                    </tr>
+                </thead>
+               <tbody id="tabela-artikli-body">
+                </tbody>
+            </table>
+
+            <div style="border: 2px solid red; width: 200px; margin-top: 20px; padding: 10px;">
+                <p>Naziv:</p>
+                <p>Cena:</p>
+                <p>Opis:</p>
+            </div>
+            <p style="color: red;">Div sa detaljima (renderuje se klikom na neki od proizvoda iz tabele)</p>
+        </div>
+
+        <div>
+            <div style="border: 2px solid blue; width: 200px; padding: 10px;">
+                <form>
+                    <label>Naziv:</label><br>
+                    <input type="text" style="border: none; border-bottom: 1px solid black; width: 100%;"><br><br>
+
+                    <label>Cena:</label><br>
+                    <input type="number" style="border: none; border-bottom: 1px solid black; width: 100%;"><br><br>
+
+                    <label>Opis:</label><br>
+                    <input type="text" style="border: none; border-bottom: 1px solid black; width: 100%;"><br><br>
+
+                    <button type="submit">Dodaj</button>
+                </form>
+            </div>
+            <p style="color: blue;">Forma za dodavanje novog proizvoda u tabelu.</p>
+        </div>
+    </div>
+</body>
+</html>
