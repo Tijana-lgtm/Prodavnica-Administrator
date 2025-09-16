@@ -23,8 +23,26 @@ function createArticleRows (articles) {
         tr.appendChild(rb);
         tr.appendChild(naziv);
         tr.appendChild(cena);
+
+        tr.addEventListener('click', function() {
+            displayArticleDetails(articles[i])
+        })
+
         table.appendChild(tr);
     }
+}
+
+function displayArticleDetails(article) {
+    let p = document.createElement("p")
+
+    p.innerHTML = "Naziv: " + article.naziv + "<br>" + "Cena: " + article.cena + "<br>" + "Opis: " + article.opis
+
+    let articleDetails = document.querySelector("#articleDetails")
+
+    if (articleDetails.firstChild) {
+        articleDetails.firstChild.remove()
+    }
+    articleDetails.appendChild(p)
 }
 
 function initializeArticles () {
