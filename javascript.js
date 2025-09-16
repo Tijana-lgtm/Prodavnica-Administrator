@@ -8,7 +8,8 @@ class Article {
 
 function createArticleRows (articles) {
     let table = document.querySelector("#articles-body")
-
+    table.innerHTML = ''
+    
     for(let i=0; i<articles.length; i++) {
         let tr = document.createElement ("tr")
 
@@ -45,6 +46,29 @@ function displayArticleDetails(article) {
     articleDetails.appendChild(p)
 }
 
+function handleFormSubmission (articles) {
+    let submitBtn = document.querySelector("#submit")
+
+    submitBtn.addEventListener('click', function (){
+        const form = document.querySelector("#forma")
+        const formData = new FormData (form)
+
+        const naziv = formData.get("naziv")
+        const cena = formData.get("cena")
+        const opis = formData.get("opis")
+
+        for (let i = 0; i<articles.length; i++) {
+            if (naziv===articles[i].naziv) {
+                return
+            }
+        }
+
+        const newArticle = new Article (naziv, cena, opis)
+        articles.push(newArticle)
+        createArticleRows(articles)
+    })
+}
+
 function initializeArticles () {
     let articles = [
         new Article ("Monitor", 165, "LED monitor, dimenzije 26 inca."),
@@ -53,6 +77,7 @@ function initializeArticles () {
     ];
 
     createArticleRows (articles);
+    handleFormSubmission (articles);
 }
 
 document.addEventListener('DOMContentLoaded', initializeArticles);

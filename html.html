@@ -8,8 +8,8 @@
 
     <h2>Artikli</h2>
     <hr>
-        <div class="container">
-            <table id= "articles">
+        <div style="display: flex; gap: 50px;" class="container">
+            <table border="1" style="border-collapse: collapse;" id= "articles">
                 <thead>
                     <tr>
                         <th>Br</th>
@@ -21,22 +21,24 @@
                 </tbody>
             </table>
 
-            <div id="articleDetails">
-            </div>
-            <div>
+            <div style="border: 2px solid blue; width: 200px; padding: 10px;">
                 <form id = "forma">
                     <label for ="naziv">Naziv:</label>
-                    <input type="text" id = "naziv" name = "naziv" required>
+                    <input type="text" style="border: none; border-bottom: 1px solid black; width: 100%;" id = "naziv" name = "naziv" required>
 
                     <label for ="cena">Cena:</label>
-                    <input type="number" id ="cena" name="cena" required>
+                    <input type="number" style="border: none; border-bottom: 1px solid black; width: 100%;" id ="cena" name="cena" required>
 
                     <label for ="opis">Opis:</label>
-                    <textarea id="opis" name = "opis" required></textarea>
+                    <textarea id="opis" style="border: none; border-bottom: 1px solid black; width: 100%;" name = "opis" required></textarea>
                 </form>
-                <button type="button" id ="submit">Dodaj</button>
-            </div>
+                <button type="button" id="submit" style="float: right; margin-top: 10px;">Dodaj</button>
+            </div>      
         </div>
+            
+        <div style="border: 2px solid red; width: 200px; margin-top: 20px; padding: 10px;" id="articleDetails">
+        </div>
+
     <script src="javascript.js"></script>
 </body>
 </html>
