@@ -6,10 +6,23 @@ class Article {
     }
 }
 
+function saveArticles(articles) {
+    localStorage.setItem("articles", JSON.stringify(articles))
+}
+
+function loadArticles() {
+    let values = localStorage.getItem("articles")
+    if (values) {
+        return JSON.parse(values)
+    }
+    return []
+}
+
+
 function createArticleRows (articles) {
     let table = document.querySelector("#articles-body")
     table.innerHTML = ''
-    
+
     for(let i=0; i<articles.length; i++) {
         let tr = document.createElement ("tr")
 
@@ -63,21 +76,18 @@ function handleFormSubmission (articles) {
             }
         }
 
-        const newArticle = new Article (naziv, cena, opis)
-        articles.push(newArticle)
-        createArticleRows(articles)
+    const newArticle = new Article(naziv, cena, opis)
+    articles.push(newArticle)
+    saveArticles(articles)
+    createArticleRows(articles)
     })
 }
 
 function initializeArticles () {
-    let articles = [
-        new Article ("Monitor", 165, "LED monitor, dimenzije 26 inca."),
-        new Article ("TV", 650, "LED TV, dimenzije 55 inca."),
-        new Article ("Mis", 20, "Lagan, kompaktan, bezicni mis.")
-    ];
+    let articles = loadArticles()
 
-    createArticleRows (articles);
-    handleFormSubmission (articles);
+    createArticleRows(articles)
+    handleFormSubmission(articles)
 }
 
 document.addEventListener('DOMContentLoaded', initializeArticles);
