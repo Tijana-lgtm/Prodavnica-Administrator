@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css.css">
     <title>Online Prodavnica</title>
 </head>
 <body>
 
     <h2>Artikli</h2>
     <hr>
-
-    <div style="display: flex; gap: 50px;">
-        <div>
-            <table border="1" style="border-collapse: collapse;">
+        <div class="container">
+            <table id= "articles">
                 <thead>
                     <tr>
                         <th>Br</th>
@@ -18,36 +17,32 @@
                         <th>Cena($)</th>
                     </tr>
                 </thead>
-               <tbody id="tabela-artikli-body">
+               <tbody id="articles-body">
                 </tbody>
             </table>
 
-            <div style="border: 2px solid red; width: 200px; margin-top: 20px; padding: 10px;">
+            <div id="articleDetails">
                 <p>Naziv:</p>
                 <p>Cena:</p>
                 <p>Opis:</p>
             </div>
-            <p style="color: red;">Div sa detaljima (renderuje se klikom na neki od proizvoda iz tabele)</p>
-        </div>
+            <p>Div sa detaljima (renderuje se klikom na neki od proizvoda iz tabele)</p>
 
-        <div>
-            <div style="border: 2px solid blue; width: 200px; padding: 10px;">
-                <form>
-                    <label>Naziv:</label><br>
-                    <input type="text" style="border: none; border-bottom: 1px solid black; width: 100%;"><br><br>
+            <div>
+                <form id = "forma">
+                    <label for ="naziv">Naziv:</label>
+                    <input type="text" id = "naziv" name = "naziv" required>
 
-                    <label>Cena:</label><br>
-                    <input type="number" style="border: none; border-bottom: 1px solid black; width: 100%;"><br><br>
+                    <label for ="cena">Cena:</label>
+                    <input type="number" id ="cena" name="cena" required>
 
-                    <label>Opis:</label><br>
-                    <input type="text" style="border: none; border-bottom: 1px solid black; width: 100%;"><br><br>
-
-                    <button type="submit">Dodaj</button>
+                    <label for ="opis">Opis:</label>
+                    <textarea id="opis" name = "opis" required></textarea>
                 </form>
+                <button type="button" id ="submit">Kreiraj artikal</button>
+                <p>Forma za dodavanje novog proizvoda u tabelu.</p>
             </div>
-            <p style="color: blue;">Forma za dodavanje novog proizvoda u tabelu.</p>
         </div>
-    </div>
     <script src="javascript.js"></script>
 </body>
 </html>

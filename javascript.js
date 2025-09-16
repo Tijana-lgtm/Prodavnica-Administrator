@@ -1,4 +1,4 @@
-class Artikal {
+class Article {
     constructor (naziv, cena, opis) {
         this.naziv=naziv
         this.cena=cena
@@ -6,36 +6,35 @@ class Artikal {
     }
 }
 
-let monitor = new Artikal ("Monitor", 165, "Monitor 20 inca")
-let tv = new Artikal ("TV", 650, "TV 55 inca") 
-let mis = new Artikal ("Mis", 20, "Bezicni mis")
+function createArticleRows (articles) {
+    let table = document.querySelector("#articles-body")
 
-let artikli = [monitor, tv, mis]
+    for(let i=0; i<articles.length; i++) {
+        let tr = document.createElement ("tr")
 
-function createArticalRows() {
-    let table = document.querySelector("#tabela-artikli-body");
-    table.innerHTML = '';
+        let rb = document.createElement ("td")
+        let naziv = document.createElement ("td")
+        let cena = document.createElement ("td")
 
-    for (let i = 0; i < artikli.length; i++) {
-        let tr = document.createElement("tr");
+        rb.textContent = i+1;
+        naziv.textContent = articles[i].naziv;
+        cena.textContent = articles[i].cena;
 
-        let tdBr = document.createElement("td");
-        tdBr.textContent = i + 1;
-        tdBr.style.textAlign = "center";
-        tr.appendChild(tdBr);
-
-        let tdNaziv = document.createElement("td");
-        tdNaziv.textContent = artikli[i].naziv;
-        tdNaziv.style.textAlign = "center";
-        tr.appendChild(tdNaziv);
-
-        let tdCena = document.createElement("td");
-        tdCena.textContent = artikli[i].cena;
-        tdCena.style.textAlign = "center";
-        tr.appendChild(tdCena);
-
-        table.appendChild(tr); 
+        tr.appendChild(rb);
+        tr.appendChild(naziv);
+        tr.appendChild(cena);
+        table.appendChild(tr);
     }
 }
 
-document.addEventListener("DOMContentLoaded", createArticalRows)
+function initializeArticles () {
+    let articles = [
+        new Article ("Monitor", 165, "LED monitor, dimenzije 26 inca."),
+        new Article ("TV", 650, "LED TV, dimenzije 55 inca."),
+        new Article ("Mis", 20, "Lagan, kompaktan, bezicni mis.")
+    ];
+
+    createArticleRows (articles);
+}
+
+document.addEventListener('DOMContentLoaded', initializeArticles);
